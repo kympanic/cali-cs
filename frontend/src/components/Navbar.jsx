@@ -2,7 +2,7 @@ import { FaCartShopping } from "react-icons/fa6";
 
 const Navbar = () => {
 	return (
-		<nav className="bg-blue-700 p-4">
+		<nav className="bg-blue-700 p-4 fixed w-full top-0 z-10">
 			<div className="container mx-auto flex justify-between items-center">
 				<div className="text-white text-xl font-bold">
 					California Cleaning Supplies
