@@ -56,6 +56,9 @@ const loginUser = asyncHandler(async (req, res) => {
 				isAdmin: existingUser.isAdmin,
 			});
 			return;
+		} else {
+			res.status(404);
+			throw new Error("Password is incorrect");
 		}
 	}
 });
@@ -131,6 +134,7 @@ const deleteUserById = asyncHandler(async (req, res) => {
 		throw new Error("User not found");
 	}
 });
+
 export {
 	createUser,
 	loginUser,
