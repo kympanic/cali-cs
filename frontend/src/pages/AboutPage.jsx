@@ -1,3 +1,5 @@
+import MapComponent from '../components/MapComponent';
+
 const AboutPage = () => {
 	return (
 	<div className="max-w-4xl mx-auto p-8">
@@ -12,6 +14,10 @@ const AboutPage = () => {
         <li className="text-lg mb-1">Phone: (123) 456-7890</li>
         <li className="text-lg mb-1">Address: 123 Business Street, Business City, BC 12345</li>
       </ul>
+	  <div className="mt-8">
+        <h2 className="text-2xl text-blue-700 font-semibold mb-4">Our Location</h2>
+        <MapComponent />
+      </div>
     </div>
 	)
 };
