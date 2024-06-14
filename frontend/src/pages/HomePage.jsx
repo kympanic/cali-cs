@@ -1,12 +1,16 @@
 import Header from "../components/Layout/Header";
 import Footer from "../components/Layout/Footer";
+import Hero from "../components/Layout/Hero";
+import { useContext } from "react";
+import { ProductContext } from "../context/ProductContext";
+
 const HomePage = () => {
+	const { products } = useContext(ProductContext);
+	console.log(products);
 	return (
 		<>
 			<Header activeHeading={1} />
-			<div className="w-full h-[1000px] bg-slate-300">
-				<h1>CONTENT HERE</h1>
-			</div>
+			<Hero />
 			<Footer />
 		</>
 	);
