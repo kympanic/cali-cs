@@ -4,12 +4,14 @@ import { AiOutlineSearch, AiOutlineShoppingCart } from "react-icons/ai";
 import { BiMenuAltLeft } from "react-icons/bi";
 import { IoIosArrowDown } from "react-icons/io";
 import { CgProfile } from "react-icons/cg";
-
+import { categoriesData } from "../../static/data.js";
 import { useState } from "react";
 import Navbar from "./Navbar.jsx";
+import DropDown from "./DropDown.jsx";
 
 const Header = ({ activeHeading }) => {
 	const [active, setActive] = useState(false);
+	const [dropDown, setDropDown] = useState(false);
 
 	window.addEventListener("scroll", () => {
 		if (window.scrollY > 70) {
@@ -53,7 +55,10 @@ const Header = ({ activeHeading }) => {
 					className={`${styles.section} relative ${styles.normalFlex} justify-between`}
 				>
 					{/* Category */}
-					<div className="relative h-[60px] mt-[10px] w-[200px] 1000px:block">
+					<div
+						onClick={() => setDropDown(!dropDown)}
+						className="relative h-[60px] mt-[10px] w-[200px] 1000px:block"
+					>
 						<BiMenuAltLeft
 							size={30}
 							className="absolute top-3 left-2"
@@ -66,7 +71,15 @@ const Header = ({ activeHeading }) => {
 						<IoIosArrowDown
 							size={20}
 							className="absolute right-2 top-4 cursor-pointer"
+							onClick={() => setDropDown(!dropDown)}
 						/>
+						{dropDown ? (
+							<DropDown
+								categoriesData={categoriesData}
+								setDropDown={setDropDown}
+								dropDown={dropDown}
+							/>
+						) : null}
 					</div>
 					{/* NavItems */}
 					<div className={`${styles.normalFlex}`}>
