@@ -2,7 +2,7 @@ import styles from "../../styles/styles";
 import { Link } from "react-router-dom";
 import { AiOutlineSearch, AiOutlineShoppingCart } from "react-icons/ai";
 import { BiMenuAltLeft } from "react-icons/bi";
-import { IoIosArrowDown } from "react-icons/io";
+import { IoIosArrowDown, IoIosArrowForward } from "react-icons/io";
 import { CgProfile } from "react-icons/cg";
 import { categoriesData } from "../../static/data.js";
 import { useState } from "react";
@@ -27,7 +27,7 @@ const Header = ({ activeHeading }) => {
 				<div className="flex items-center justify-between ">
 					<div>
 						<Link to="/">
-							<h1 className="text-4xl p-4 text-center font-bold bg-slate-100">
+							<h1 className="text-2xl p-4 text-center font-bold ">
 								California Cleaning Supplies
 							</h1>
 						</Link>
@@ -43,6 +43,14 @@ const Header = ({ activeHeading }) => {
 							size={30}
 							className="absolute right-2 top-1.5 cursor-pointer border-l-black"
 						/>
+					</div>
+					<div className={`${styles.button}`}>
+						<Link to="/shop-login">
+							<h1 className="text-[#fff] flex items-center">
+								Login
+								<IoIosArrowForward className="ml-1" />
+							</h1>
+						</Link>
 					</div>
 				</div>
 			</div>

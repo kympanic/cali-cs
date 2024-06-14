@@ -7,7 +7,7 @@ import {
 	ProductsPage,
 	QuotePage,
 } from "./pages";
-import { Footer } from "./components";
+import "./index.css";
 
 function App() {
 	return (
@@ -23,7 +23,6 @@ function App() {
 				/>
 				<Route path="/quote" element={<QuotePage />} />
 			</Routes>
-			<Footer />
 		</BrowserRouter>
 	);
 }
