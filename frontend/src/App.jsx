@@ -7,12 +7,11 @@ import {
 	ProductsPage,
 	QuotePage,
 } from "./pages";
-import { Footer, Navbar } from "./components";
+import { Footer } from "./components";
 
 function App() {
 	return (
 		<BrowserRouter>
-			<Navbar />
 			<Routes>
 				<Route index element={<HomePage />} />
 				<Route path="/about" element={<AboutPage />} />
