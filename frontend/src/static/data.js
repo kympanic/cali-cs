@@ -22,6 +22,7 @@ export const categoriesData = [
 		id: 1,
 		title: "Janitorial Supplies",
 		subTitle: "",
+		icon: "",
 	},
 	{
 		id: 2,
@@ -49,22 +50,22 @@ export const categoriesData = [
 export const brandingData = [
 	{
 		id: 1,
-		title: "Free Shipping",
-		Description: "From all orders over 100$",
+		title: "Fast Local Shipping",
+		Description: "Serving majority of SoCal",
 	},
 	{
 		id: 2,
-		title: "Daily Surprise Offers",
-		Description: "Save up to 25% off",
+		title: "Stocked Inventory",
+		Description: "Inventory is updated daily",
+	},
+	{
+		id: 3,
+		title: "Affordable Prices",
+		Description: "Competitive with other suppliers",
 	},
 	{
 		id: 4,
-		title: "Affortable Prices",
-		Description: "Like you're cooking from home",
-	},
-	{
-		id: 5,
-		title: "Secure Payments",
-		Description: "100% protected payments",
+		title: "Customer Service",
+		Description: "Support available 24/7",
 	},
 ];
