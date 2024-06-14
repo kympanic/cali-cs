@@ -69,3 +69,18 @@ export const brandingData = [
 		Description: "Support available 24/7",
 	},
 ];
+
+export const footerSupportLinks = [
+	{
+		name: "Reviews",
+	},
+	{
+		name: "Contact Us",
+	},
+	{
+		name: "Shipping",
+	},
+	{
+		name: "Live chat",
+	},
+];

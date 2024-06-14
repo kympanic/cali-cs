@@ -8,6 +8,7 @@ import { categoriesData } from "../../static/data.js";
 import { useState } from "react";
 import Navbar from "./Navbar.jsx";
 import DropDown from "./DropDown.jsx";
+import { logo } from "../../assets/index.js";
 
 const Header = ({ activeHeading }) => {
 	const [active, setActive] = useState(false);
@@ -27,9 +28,10 @@ const Header = ({ activeHeading }) => {
 				<div className="flex items-center justify-between ">
 					<div>
 						<Link to="/">
-							<h1 className="text-2xl p-4 text-center font-bold ">
+							<img src={logo} alt="" />
+							{/* <h1 className="text-2xl p-4 text-center font-bold ">
 								California Cleaning Supplies
-							</h1>
+							</h1> */}
 						</Link>
 					</div>
 					{/* Searchbar */}
