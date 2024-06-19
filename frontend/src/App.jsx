@@ -7,7 +7,7 @@ import {
 	ProductsPage,
 	QuotePage,
 } from "./pages";
-import { Footer } from "./components";
+import "./index.css";
 
 function App() {
 	return (
@@ -17,13 +17,9 @@ function App() {
 				<Route path="/about" element={<AboutPage />} />
 				<Route path="/contact" element={<ContactPage />} />
 				<Route path="/products" element={<ProductsPage />} />
-				<Route
-					path="/productdetails"
-					element={<ProductDetailsPage />}
-				/>
+				<Route path="/product/:id" element={<ProductDetailsPage />} />
 				<Route path="/quote" element={<QuotePage />} />
 			</Routes>
-			<Footer />
 		</BrowserRouter>
 	);
 }

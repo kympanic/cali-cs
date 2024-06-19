@@ -1,4 +1,4 @@
-import mapPlaceholder from "../assets/map-placeholder.jpg";
+import mapPlaceholder from "../../assets/map-placeholder.jpg";
 
 const MapComponent = () => {
 	return (

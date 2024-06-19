@@ -1,5 +1,6 @@
-import { Header } from "../components";
-import MapComponent from "../components/MapComponent";
+import Header from "../components/Layout/Header";
+import Footer from "../components/Layout/Footer";
+import MapComponent from "../components/Layout/MapComponent";
 
 const AboutPage = () => {
 	return (
@@ -48,6 +49,7 @@ const AboutPage = () => {
 					<MapComponent />
 				</div>
 			</div>
+			<Footer />
 		</>
 	);
 };

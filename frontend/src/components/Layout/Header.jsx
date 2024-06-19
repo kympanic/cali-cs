@@ -2,14 +2,17 @@ import styles from "../../styles/styles";
 import { Link } from "react-router-dom";
 import { AiOutlineSearch, AiOutlineShoppingCart } from "react-icons/ai";
 import { BiMenuAltLeft } from "react-icons/bi";
-import { IoIosArrowDown } from "react-icons/io";
+import { IoIosArrowDown, IoIosArrowForward } from "react-icons/io";
 import { CgProfile } from "react-icons/cg";
-
+import { categoriesData } from "../../static/data.js";
 import { useState } from "react";
 import Navbar from "./Navbar.jsx";
+import DropDown from "./DropDown.jsx";
+import { logo } from "../../assets/index.js";
 
 const Header = ({ activeHeading }) => {
 	const [active, setActive] = useState(false);
+	const [dropDown, setDropDown] = useState(false);
 
 	window.addEventListener("scroll", () => {
 		if (window.scrollY > 70) {
@@ -25,9 +28,10 @@ const Header = ({ activeHeading }) => {
 				<div className="flex items-center justify-between ">
 					<div>
 						<Link to="/">
-							<h1 className="text-4xl p-4 text-center font-bold bg-slate-100">
+							<img src={logo} alt="" />
+							{/* <h1 className="text-2xl p-4 text-center font-bold ">
 								California Cleaning Supplies
-							</h1>
+							</h1> */}
 						</Link>
 					</div>
 					{/* Searchbar */}
@@ -42,6 +46,14 @@ const Header = ({ activeHeading }) => {
 							className="absolute right-2 top-1.5 cursor-pointer border-l-black"
 						/>
 					</div>
+					<div className={`${styles.button}`}>
+						<Link to="/shop-login">
+							<h1 className="text-[#fff] flex items-center">
+								Login
+								<IoIosArrowForward className="ml-1" />
+							</h1>
+						</Link>
+					</div>
 				</div>
 			</div>
 			<div
@@ -53,7 +65,10 @@ const Header = ({ activeHeading }) => {
 					className={`${styles.section} relative ${styles.normalFlex} justify-between`}
 				>
 					{/* Category */}
-					<div className="relative h-[60px] mt-[10px] w-[200px] 1000px:block">
+					<div
+						onClick={() => setDropDown(!dropDown)}
+						className="relative h-[60px] mt-[10px] w-[200px] 1000px:block"
+					>
 						<BiMenuAltLeft
 							size={30}
 							className="absolute top-3 left-2"
@@ -66,7 +81,15 @@ const Header = ({ activeHeading }) => {
 						<IoIosArrowDown
 							size={20}
 							className="absolute right-2 top-4 cursor-pointer"
+							onClick={() => setDropDown(!dropDown)}
 						/>
+						{dropDown ? (
+							<DropDown
+								categoriesData={categoriesData}
+								setDropDown={setDropDown}
+								dropDown={dropDown}
+							/>
+						) : null}
 					</div>
 					{/* NavItems */}
 					<div className={`${styles.normalFlex}`}>
