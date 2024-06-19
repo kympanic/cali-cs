@@ -1,4 +1,5 @@
 import Header from "../components/Layout/Header";
+import Footer from "../components/Layout/Footer";
 import ContactForm from "../components/Forms/ContactForm";
 
 const ContactPage = () => {
@@ -9,6 +10,7 @@ const ContactPage = () => {
 				{/* Use contact form component for jsx. Keeps page code clean */}
 				<ContactForm />
 			</div>
+			<Footer />
 		</>
 	);
 };
