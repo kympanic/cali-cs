@@ -9,7 +9,6 @@ const ContactForm = () => {
     state: '',
     zipCode: '',
     phoneNumber: '',
-    faxNumber: '',
     email: '',
     comments: '',
   });
@@ -24,7 +23,7 @@ const ContactForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch('http://localhost:5000/api/contact', {
+    const response = await fetch('http://localhost:8000/api/contact', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -41,7 +40,6 @@ const ContactForm = () => {
         state: '',
         zipCode: '',
         phoneNumber: '',
-        faxNumber: '',
         email: '',
         comments: '',
       });
@@ -128,17 +126,6 @@ const ContactForm = () => {
           value={formData.phoneNumber}
           onChange={handleChange}
           required
-          className="mt-1 p-2 block w-full border border-gray-300 rounded-md"
-        />
-      </div>
-      <div className="mb-4">
-        <label htmlFor="faxNumber" className="block text-sm font-medium text-gray-700">Fax Number</label>
-        <input
-          type="text"
-          id="faxNumber"
-          name="faxNumber"
-          value={formData.faxNumber}
-          onChange={handleChange}
           className="mt-1 p-2 block w-full border border-gray-300 rounded-md"
         />
       </div>
