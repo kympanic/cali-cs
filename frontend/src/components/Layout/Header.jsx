@@ -47,7 +47,7 @@ const Header = ({ activeHeading }) => {
 						/>
 					</div>
 					<div className={`${styles.button}`}>
-						<Link to="/shop-login">
+						<Link to="/login">
 							<h1 className="text-[#fff] flex items-center">
 								Login
 								<IoIosArrowForward className="ml-1" />

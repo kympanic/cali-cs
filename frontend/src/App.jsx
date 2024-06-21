@@ -6,14 +6,20 @@ import {
 	ProductDetailsPage,
 	ProductsPage,
 	QuotePage,
+	LoginPage,
+	SignupPage,
 } from "./pages";
 import "./index.css";
+import ScrollToTop from "./utils/ScrollToTop";
 
 function App() {
 	return (
 		<BrowserRouter>
+			<ScrollToTop />
 			<Routes>
 				<Route index element={<HomePage />} />
+				<Route path="/login" element={<LoginPage />} />
+				<Route path="/signup" element={<SignupPage />} />
 				<Route path="/about" element={<AboutPage />} />
 				<Route path="/contact" element={<ContactPage />} />
 				<Route path="/products" element={<ProductsPage />} />
