@@ -4,7 +4,6 @@ import { BsPlus, BsEyeFill } from "react-icons/bs";
 
 const FeaturedProductCard = ({ product }) => {
 	const { id, image, category, title, description } = product;
-	console.log(product);
 	return (
 		<div>
 			<div className="border border-[#e4e4e4] h-[300px] mb-4 relative overflow-hidden group transition bg-white">
