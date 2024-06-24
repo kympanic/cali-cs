@@ -10,7 +10,7 @@ import Navbar from "./Navbar.jsx";
 import DropDown from "./DropDown.jsx";
 import { logo } from "../../assets/index.js";
 import { useSelector, useDispatch } from "react-redux";
-import { useLoginMutation } from "../../redux/api/usersApiSlice.js";
+import { useLogoutMutation } from "../../redux/api/usersApiSlice.js";
 import { logout } from "../../redux/features/auth/authSlice";
 
 const Header = ({ activeHeading }) => {
@@ -20,7 +20,7 @@ const Header = ({ activeHeading }) => {
 	const [active, setActive] = useState(false);
 	const [dropDown, setDropDown] = useState(false);
 
-	const [logoutApiCall] = useLoginMutation();
+	const [logoutApiCall] = useLogoutMutation();
 
 	const logoutHandler = async () => {
 		try {
@@ -65,21 +65,24 @@ const Header = ({ activeHeading }) => {
 						/>
 					</div>
 					{userInfo ? (
-						<div className={`${styles.button}`}>
+						<div
+							className={`${styles.button}`}
+							onClick={logoutHandler}
+						>
 							<h1 className="text-[#fff] flex items-center">
 								Logout
 								<IoIosArrowForward className="ml-1" />
 							</h1>
 						</div>
 					) : (
-						<div className={`${styles.button}`}>
-							<Link to="/login">
+						<Link to="/login">
+							<div className={`${styles.button}`}>
 								<h1 className="text-[#fff] flex items-center">
 									Login
 									<IoIosArrowForward className="ml-1" />
 								</h1>
-							</Link>
-						</div>
+							</div>
+						</Link>
 					)}
 				</div>
 			</div>
@@ -135,12 +138,17 @@ const Header = ({ activeHeading }) => {
 							</div>
 							<div className="relative cursor-pointer mr-[15px]">
 								{userInfo ? (
-									<span className="text-white">
-										{userInfo.username}
-									</span>
+									<Link to={`/user/${userInfo._id}`}>
+										<span className="text-white ml-5 border p-2 rounded-lg bg-red-600">
+											{userInfo.username
+												.charAt(0)
+												.toUpperCase()}
+										</span>
+									</Link>
 								) : (
 									<Link to="/login">
 										<CgProfile
+											className="ml-5"
 											size={30}
 											color="rgb(255 255 255/ 83%)"
 										/>

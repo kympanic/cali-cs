@@ -1,4 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import ScrollToTop from "./utils/ScrollToTop";
+import { ToastContainer } from "react-toastify";
 import {
 	HomePage,
 	AboutPage,
@@ -10,12 +12,13 @@ import {
 	SignupPage,
 } from "./pages";
 import "./index.css";
-import ScrollToTop from "./utils/ScrollToTop";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
 	return (
 		<BrowserRouter>
 			<ScrollToTop />
+			<ToastContainer />
 			<Routes>
 				<Route index element={<HomePage />} />
 				<Route path="/login" element={<LoginPage />} />

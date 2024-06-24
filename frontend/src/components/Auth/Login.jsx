@@ -35,7 +35,9 @@ const Login = () => {
 			console.log(res);
 			dispatch(setCredentials({ ...res }));
 		} catch (error) {
-			toast.error(error?.data?.message || error.message);
+			toast.error(error?.data?.message || error.message, {
+				position: "bottom-center",
+			});
 		}
 	};
 
