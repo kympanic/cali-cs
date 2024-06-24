@@ -10,6 +10,9 @@ import {
 	QuotePage,
 	LoginPage,
 	SignupPage,
+	AdminPage,
+	UserProfilePage,
+	NotFoundPage,
 } from "./pages";
 import "./index.css";
 import "react-toastify/dist/ReactToastify.css";
@@ -28,6 +31,9 @@ function App() {
 				<Route path="/products" element={<ProductsPage />} />
 				<Route path="/product/:id" element={<ProductDetailsPage />} />
 				<Route path="/quote" element={<QuotePage />} />
+				<Route path="/user/:id" element={<UserProfilePage />} />
+				<Route path="/admin/:id" element={<AdminPage />} />
+				<Route path="*" element={<NotFoundPage />} />
 			</Routes>
 		</BrowserRouter>
 	);

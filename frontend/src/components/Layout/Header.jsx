@@ -19,7 +19,6 @@ const Header = ({ activeHeading }) => {
 	const navigate = useNavigate;
 	const [active, setActive] = useState(false);
 	const [dropDown, setDropDown] = useState(false);
-
 	const [logoutApiCall] = useLogoutMutation();
 
 	const logoutHandler = async () => {
@@ -138,9 +137,15 @@ const Header = ({ activeHeading }) => {
 							</div>
 							<div className="relative cursor-pointer mr-[15px]">
 								{userInfo ? (
-									<Link to={`/user/${userInfo._id}`}>
+									<Link
+										to={
+											userInfo?.isAdmin
+												? `/admin/${userInfo._id}`
+												: `/user/${userInfo._id}`
+										}
+									>
 										<span className="text-white ml-5 border p-2 rounded-lg bg-red-600">
-											{userInfo.username
+											{userInfo?.username
 												.charAt(0)
 												.toUpperCase()}
 										</span>
