@@ -1,5 +1,5 @@
 import styles from "../../styles/styles";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AiOutlineSearch, AiOutlineShoppingCart } from "react-icons/ai";
 import { BiMenuAltLeft } from "react-icons/bi";
 import { IoIosArrowDown, IoIosArrowForward } from "react-icons/io";
@@ -9,10 +9,27 @@ import { useState } from "react";
 import Navbar from "./Navbar.jsx";
 import DropDown from "./DropDown.jsx";
 import { logo } from "../../assets/index.js";
+import { useSelector, useDispatch } from "react-redux";
+import { useLogoutMutation } from "../../redux/api/usersApiSlice.js";
+import { logout } from "../../redux/features/auth/authSlice";
 
 const Header = ({ activeHeading }) => {
+	const { userInfo } = useSelector((state) => state.auth);
+	const dispatch = useDispatch();
+	const navigate = useNavigate;
 	const [active, setActive] = useState(false);
 	const [dropDown, setDropDown] = useState(false);
+	const [logoutApiCall] = useLogoutMutation();
+
+	const logoutHandler = async () => {
+		try {
+			await logoutApiCall().unwrap();
+			dispatch(logout());
+			navigate("/");
+		} catch (error) {
+			console.error(error);
+		}
+	};
 
 	window.addEventListener("scroll", () => {
 		if (window.scrollY > 70) {
@@ -46,14 +63,26 @@ const Header = ({ activeHeading }) => {
 							className="absolute right-2 top-1.5 cursor-pointer border-l-black"
 						/>
 					</div>
-					<div className={`${styles.button}`}>
-						<Link to="/shop-login">
+					{userInfo ? (
+						<div
+							className={`${styles.button}`}
+							onClick={logoutHandler}
+						>
 							<h1 className="text-[#fff] flex items-center">
-								Login
+								Logout
 								<IoIosArrowForward className="ml-1" />
 							</h1>
+						</div>
+					) : (
+						<Link to="/login">
+							<div className={`${styles.button}`}>
+								<h1 className="text-[#fff] flex items-center">
+									Login
+									<IoIosArrowForward className="ml-1" />
+								</h1>
+							</div>
 						</Link>
-					</div>
+					)}
 				</div>
 			</div>
 			<div
@@ -107,12 +136,29 @@ const Header = ({ activeHeading }) => {
 								</Link>
 							</div>
 							<div className="relative cursor-pointer mr-[15px]">
-								<Link to="/login">
-									<CgProfile
-										size={30}
-										color="rgb(255 255 255/ 83%)"
-									/>
-								</Link>
+								{userInfo ? (
+									<Link
+										to={
+											userInfo?.isAdmin
+												? `/admin/${userInfo._id}`
+												: `/user/${userInfo._id}`
+										}
+									>
+										<span className="text-white ml-5 border p-2 rounded-lg bg-red-600">
+											{userInfo?.username
+												.charAt(0)
+												.toUpperCase()}
+										</span>
+									</Link>
+								) : (
+									<Link to="/login">
+										<CgProfile
+											className="ml-5"
+											size={30}
+											color="rgb(255 255 255/ 83%)"
+										/>
+									</Link>
+								)}
 							</div>
 						</div>
 					</div>

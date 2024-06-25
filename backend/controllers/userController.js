@@ -4,12 +4,13 @@ import bcrypt from "bcryptjs";
 import createToken from "../utils/createToken.js";
 
 const createUser = asyncHandler(async (req, res) => {
-	const { username, email, password } = req.body;
+	const { name, username, email, phone, password } = req.body;
+
 	// console.log(username);
 	// console.log(email);
 	// console.log(password); //checking if reqbody is working correctly iin postman
 
-	if (!username || !email || !password) {
+	if (!name || !username || !email || !phone || !password) {
 		throw new Error("Please fill out all fields");
 	}
 
@@ -19,15 +20,23 @@ const createUser = asyncHandler(async (req, res) => {
 	const salt = await bcrypt.genSalt(10);
 	const hashedPassword = await bcrypt.hash(password, salt);
 
-	const newUser = new User({ username, email, password: hashedPassword });
+	const newUser = new User({
+		name,
+		username,
+		email,
+		phonenumber: phone,
+		password: hashedPassword,
+	});
 	try {
 		await newUser.save(); // save new user to db
 		createToken(res, newUser._id);
 
 		res.status(201).json({
 			_id: newUser._id,
+			name: newUser.name,
 			username: newUser.username,
 			email: newUser.email,
+			phonenumber: newUser.phonenumber,
 			isAdmin: newUser.isAdmin,
 		});
 	} catch (error) {

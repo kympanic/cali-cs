@@ -1,17 +1,16 @@
-import React, {useContext} from "react";
+import React, { useContext } from "react";
 import { ProductContext } from "../../context/ProductContext";
 import styles from "../../styles/styles";
 import ProductGalleryCard from "./ProductGalleryCard";
 
-
 const ProductGallery = () => {
 	const { products } = useContext(ProductContext);
 
-  const filteredProducts = products.filter((item) => {
+	const filteredProducts = products.filter((item) => {
 		return item.category === "jewelery" || item.category === "electronics";
-  })
+	});
 
-  return (
+	return (
 		<div className={`${styles.section} `}>
 			<div
 				className={`${styles.heading} border-b-4 border-b-blue-700 mb-10 `}
@@ -22,15 +21,17 @@ const ProductGallery = () => {
 			<ul className="bg-white rounded-lg shadow divide-y divide-gray-200">
 			{filteredProducts.map((product) => {
 					return (
-            <ProductGalleryCard
-            product ={product}/>
+						<ProductGalleryCard
+							key={product?.id}
+							product={product}
+						/>
 					);
 				})}
       </ul>
 
 			</div>
 		</div>
-  )
-}
+	);
+};
 
 export default ProductGallery;
