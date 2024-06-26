@@ -13,6 +13,7 @@ const transporter = nodemailer.createTransport({
 });
 
 router.post('/contact', async (req, res) => {
+  console.log('Received request:', req.body); // Log the received request body
   try {
     const {
       fullName,
@@ -22,10 +23,11 @@ router.post('/contact', async (req, res) => {
       state,
       zipCode,
       phoneNumber,
-      faxNumber,
       email,
       comments
     } = req.body;
+
+    const faxNumber = req.body.faxNumber || '';
 
     const contact = new Contact({
       fullName,
@@ -64,6 +66,7 @@ router.post('/contact', async (req, res) => {
         console.error('Error sending email:', error);
         return res.status(500).send({ message: 'Failed to send email', error });
       }
+      console.log('Email sent:', info.response); // Log successful email sending
       res.status(201).send({ message: 'Contact saved and email sent successfully' });
     });
   } catch (error) {
