@@ -1,11 +1,11 @@
 import React from "react";
 
-const UserProfileOrders = () => {
+const UserAddress = () => {
 	return (
 		<div className="min-h-screen bg-white">
-			<h1>Your Orders</h1>
+			<h1>UserAddress</h1>
 		</div>
 	);
 };
 
-export default UserProfileOrders;
+export default UserAddress;
