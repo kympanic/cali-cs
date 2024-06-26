@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { ToastContainer, toast, Bounce } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const ContactForm = () => {
+const RequestQuote = () => {
   const [formData, setFormData] = useState({
-    fullName: '',
+    contactName: '',
     companyName: '',
     address: '',
     city: '',
@@ -12,7 +12,7 @@ const ContactForm = () => {
     zipCode: '',
     phoneNumber: '',
     email: '',
-    comments: '',
+    message: '',
   });
 
   const handleChange = (e) => {
@@ -24,7 +24,7 @@ const ContactForm = () => {
   };
 
   const validateForm = () => {
-    const requiredFields = ['fullName', 'phoneNumber', 'email', 'comments'];
+    const requiredFields = ['contactName', 'companyName', 'phoneNumber', 'email', 'address', 'city', 'state', 'zipCode', 'message'];
     for (const field of requiredFields) {
       if (!formData[field]) {
         toast.error(`The ${field} field is required`, {
@@ -50,7 +50,7 @@ const ContactForm = () => {
       return;
     }
     try {
-      const response = await fetch('http://localhost:8000/api/contact', {
+      const response = await fetch('http://localhost:8000/api/quote', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -70,7 +70,7 @@ const ContactForm = () => {
           transition: Bounce,
         });
         setFormData({
-          fullName: '',
+          contactName: '',
           companyName: '',
           address: '',
           city: '',
@@ -78,7 +78,7 @@ const ContactForm = () => {
           zipCode: '',
           phoneNumber: '',
           email: '',
-          comments: '',
+          message: '',
         });
       } else {
         toast.error('Failed to submit form', {
@@ -94,111 +94,111 @@ const ContactForm = () => {
 
   return (
     <>
-      <form onSubmit={handleSubmit} className="max-w-lg mx-auto p-4">
+      <form onSubmit={handleSubmit} className="max-w-xl mx-auto p-4">
         {/* Form fields */}
-        <div className="mb-4">
-          <label htmlFor="fullName" className="block text-sm font-medium text-gray-700">Full Name *</label>
+        <div className="mb-4 flex items-center">
+          <label htmlFor="contactName" className="text-sm font-medium text-gray-700 mr-4 w-1/3">Contact Name</label>
           <input
             type="text"
-            id="fullName"
-            name="fullName"
-            value={formData.fullName}
+            id="contactName"
+            name="contactName"
+            value={formData.contactName}
             onChange={handleChange}
-            className="mt-1 p-2 block w-full border border-gray-300 rounded-md"
+            className="p-2 block w-2/3 border border-gray-300 rounded-md"
           />
         </div>
-        <div className="mb-4">
-          <label htmlFor="companyName" className="block text-sm font-medium text-gray-700">Company Name</label>
+        <div className="mb-4 flex items-center">
+          <label htmlFor="companyName" className="text-sm font-medium text-gray-700 mr-4 w-1/3">Company Name</label>
           <input
             type="text"
             id="companyName"
             name="companyName"
             value={formData.companyName}
             onChange={handleChange}
-            className="mt-1 p-2 block w-full border border-gray-300 rounded-md"
+            className="p-2 block w-2/3 border border-gray-300 rounded-md"
           />
         </div>
-        <div className="mb-4">
-          <label htmlFor="address" className="block text-sm font-medium text-gray-700">Address</label>
-          <input
-            type="text"
-            id="address"
-            name="address"
-            value={formData.address}
-            onChange={handleChange}
-            className="mt-1 p-2 block w-full border border-gray-300 rounded-md"
-          />
-        </div>
-        <div className="mb-4">
-          <label htmlFor="city" className="block text-sm font-medium text-gray-700">City</label>
-          <input
-            type="text"
-            id="city"
-            name="city"
-            value={formData.city}
-            onChange={handleChange}
-            className="mt-1 p-2 block w-full border border-gray-300 rounded-md"
-          />
-        </div>
-        <div className="mb-4">
-          <label htmlFor="state" className="block text-sm font-medium text-gray-700">State</label>
-          <input
-            type="text"
-            id="state"
-            name="state"
-            value={formData.state}
-            onChange={handleChange}
-            className="mt-1 p-2 block w-full border border-gray-300 rounded-md"
-          />
-        </div>
-        <div className="mb-4">
-          <label htmlFor="zipCode" className="block text-sm font-medium text-gray-700">Zip Code</label>
-          <input
-            type="text"
-            id="zipCode"
-            name="zipCode"
-            value={formData.zipCode}
-            onChange={handleChange}
-            className="mt-1 p-2 block w-full border border-gray-300 rounded-md"
-          />
-        </div>
-        <div className="mb-4">
-          <label htmlFor="phoneNumber" className="block text-sm font-medium text-gray-700">Phone Number *</label>
+        <div className="mb-4 flex items-center">
+          <label htmlFor="phoneNumber" className="text-sm font-medium text-gray-700 mr-4 w-1/3">Phone Number</label>
           <input
             type="tel"
             id="phoneNumber"
             name="phoneNumber"
             value={formData.phoneNumber}
             onChange={handleChange}
-            className="mt-1 p-2 block w-full border border-gray-300 rounded-md"
+            className="p-2 block w-2/3 border border-gray-300 rounded-md"
           />
         </div>
-        <div className="mb-4">
-          <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email *</label>
+        <div className="mb-4 flex items-center">
+          <label htmlFor="email" className="text-sm font-medium text-gray-700 mr-4 w-1/3">Email</label>
           <input
             type="email"
             id="email"
             name="email"
             value={formData.email}
             onChange={handleChange}
-            className="mt-1 p-2 block w-full border border-gray-300 rounded-md"
+            className="p-2 block w-2/3 border border-gray-300 rounded-md"
           />
         </div>
-        <div className="mb-4">
-          <label htmlFor="comments" className="block text-sm font-medium text-gray-700">Comments *</label>
-          <textarea
-            id="comments"
-            name="comments"
-            value={formData.comments}
+        <div className="mb-4 flex items-center">
+          <label htmlFor="address" className="text-sm font-medium text-gray-700 mr-4 w-1/3">Address</label>
+          <input
+            type="text"
+            id="address"
+            name="address"
+            value={formData.address}
             onChange={handleChange}
-            className="mt-1 p-2 block w-full border border-gray-300 rounded-md"
+            className="p-2 block w-2/3 border border-gray-300 rounded-md"
           />
         </div>
-        <button type="submit" className="mt-4 p-2 bg-blue-500 text-white rounded-md">Submit</button>
+        <div className="mb-4 flex items-center">
+          <label htmlFor="city" className="text-sm font-medium text-gray-700 mr-4 w-1/3">City</label>
+          <input
+            type="text"
+            id="city"
+            name="city"
+            value={formData.city}
+            onChange={handleChange}
+            className="p-2 block w-2/3 border border-gray-300 rounded-md"
+          />
+        </div>
+        <div className="mb-4 flex items-center">
+          <label htmlFor="state" className="text-sm font-medium text-gray-700 mr-4 w-1/3">State</label>
+          <input
+            type="text"
+            id="state"
+            name="state"
+            value={formData.state}
+            onChange={handleChange}
+            className="p-2 block w-2/3 border border-gray-300 rounded-md"
+          />
+        </div>
+        <div className="mb-4 flex items-center">
+          <label htmlFor="zipCode" className="text-sm font-medium text-gray-700 mr-4 w-1/3">Zip Code</label>
+          <input
+            type="text"
+            id="zipCode"
+            name="zipCode"
+            value={formData.zipCode}
+            onChange={handleChange}
+            className="p-2 block w-2/3 border border-gray-300 rounded-md"
+          />
+        </div>
+        <div className="mb-4 flex items-center">
+          <label htmlFor="message" className="text-sm font-medium text-gray-700 mr-4 w-1/3">Message</label>
+          <textarea
+            id="message"
+            name="message"
+            value={formData.message}
+            onChange={handleChange}
+            className="p-2 block w-2/3 border border-gray-300 rounded-md"
+          />
+        </div>
+        <button type="submit" className="mt-4 p-2 bg-blue-500 text-white rounded-md">Submit Quote</button>
       </form>
       <ToastContainer />
     </>
   );
 };
 
-export default ContactForm;
+export default RequestQuote;

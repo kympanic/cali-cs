@@ -4,6 +4,8 @@ import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 import connectDB from "./config/db.js";
 import userRoutes from "./routes/userRoutes.js";
+import contactRoutes from './routes/contactRoutes.js';
+
 
 dotenv.config();
 const port = process.env.PORT || 8000;
@@ -16,4 +18,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 app.use("/api/users", userRoutes);
+app.use('/api/contact', contactRoutes);
+
 app.listen(port, () => console.log(`Server running on port ${port}`));
