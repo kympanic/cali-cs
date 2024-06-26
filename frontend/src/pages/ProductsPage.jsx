@@ -6,7 +6,7 @@ const ProductsPage = () => {
 	return (
 		<>
 			<Header activeHeading={2} />
-			<div className="w-full h-[1000px] bg-slate-300">
+			<div className>
 				<div>
 					<ProductGallery/>
 				</div>
