@@ -1,4 +1,3 @@
-// backend/routes/contactRoutes.js
 import express from 'express';
 import nodemailer from 'nodemailer';
 import Contact from '../models/contactModel.js';
@@ -74,4 +73,3 @@ router.post('/contact', async (req, res) => {
 });
 
 export default router;
-
