@@ -1,11 +1,13 @@
-import React from "react";
+import React from "react"
 import { Link } from "react-router-dom";
 import { BsPlus, BsEyeFill } from "react-icons/bs";
 
-const FeaturedProductCard = ({ product }) => {
-	const { id, image, category, title, description } = product;
-	return (
-		<div>
+const ProductGalleryCard = ({product}) => {
+  const {id, image, category, title, description, price} = product;
+
+  return (
+    <div>
+<div>
 			<div className="border border-[#e4e4e4] h-[300px] mb-4 relative overflow-hidden group transition bg-white">
 				<div className="w-full h-full flex justify-center items-center">
 					<div className="w-[200px] mx-auto flex justify-center items-center">
@@ -37,12 +39,19 @@ const FeaturedProductCard = ({ product }) => {
 				<Link to={`/product/${id}`}>
 					<h2 className="font-semibold mb-1 truncate">{title}</h2>
 				</Link>
+        <div>
+          ${price}
+        </div>
 				<div className="text-sm text-gray-500 mb-1 overflow-hidden truncate">
 					{description}
 				</div>
+        <div>
+          <b>PLACEHOLDER FOR SKU</b>
+        </div>
 			</div>
 		</div>
-	);
-};
+    </div>
+  )
+}
 
-export default FeaturedProductCard;
+export default ProductGalleryCard
