@@ -48,7 +48,7 @@ const ProfileSideBar = ({ active, setActive }) => {
 	};
 
 	return (
-		<div className="w-[300px] shadow-sm rounded-[10px] mt-3">
+		<div className="w-[300px] rounded-[10px] mt-3">
 			{sections &&
 				sections.map((section, index) => {
 					const IconComponent = iconMapping[section.icon];
