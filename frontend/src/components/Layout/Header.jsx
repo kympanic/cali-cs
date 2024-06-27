@@ -15,6 +15,7 @@ import { logout } from "../../redux/features/auth/authSlice";
 
 const Header = ({ activeHeading }) => {
 	const { userInfo } = useSelector((state) => state.auth);
+	const { cartItems } = useSelector((state) => state.cart);
 	const dispatch = useDispatch();
 	const navigate = useNavigate;
 	const [active, setActive] = useState(false);
@@ -134,6 +135,9 @@ const Header = ({ activeHeading }) => {
 										color="rgb(255 255 255/ 83%)"
 									/>
 								</Link>
+								<span className="absolute right-0 top-0 rounded-full bg-red-600 w-4 h-4 top right p-0 m-0 text-white font-mono text-[12px] leading-tight text-center">
+									{cartItems && cartItems.length}
+								</span>
 							</div>
 							<div className="relative cursor-pointer mr-[15px]">
 								{userInfo ? (
