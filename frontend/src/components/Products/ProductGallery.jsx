@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { ProductContext } from "../../context/ProductContext";
 import styles from "../../styles/styles";
 import ProductGalleryCard from "./ProductGalleryCard";
+import CategoryList from "./CategoryList";
 
 const ProductGallery = () => {
 	const { products } = useContext(ProductContext);
