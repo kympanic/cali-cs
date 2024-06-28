@@ -25,7 +25,7 @@ function ProductDetailsPage() {
 			<Header />
 			<div className="w-3/4 mx-auto flex flex-col bg-white mt-2 rounded-t-md">
 				<RouteBar product={product} />
-				<div className="flex flex-wrap  justify-between h-[400px] mt-2">
+				<div className="flex flex-wrap justify-between h-[400px] mt-4 ">
 					<div className="flex ">
 						<div className="w-[400px] flex justify-center items-center">
 							<img
@@ -66,17 +66,20 @@ function ProductDetailsPage() {
 					</div>
 
 					<div className="w-[200px] flex flex-col align-center justify-start pr-7 ">
-						<span className="w-full flex justify-center font-bold">
+						<span className="w-full flex justify-center font-semibold">
 							Quantity:
 						</span>
 						<div className="flex w-full justify-center align-middle mt-2 h-8">
-							<input type="number" className="border w-1/2  " />
-							<div className="ml-2 w-[40px] flex align-middle justify-center bg-red-600 rounded-md ">
+							<input
+								type="number"
+								className="border w-[75px] text-center  "
+							/>
+							<div className="ml-2 w-[32px] flex align-middle justify-center bg-red-600 rounded-sm ">
 								<BsPlus className="mt-1 text-white" size={25} />
 							</div>
 						</div>
-						<div className="flex w-full justify-center align-middle mt-2">
-							<button className="w-full uppercase  p-2 bg-green-600 rounded-sm text-white">
+						<div className="flex w-full justify-center align-middle mt-4 ">
+							<button className="w-full uppercase p-1 bg-green-600 rounded-sm text-white">
 								Add to quote
 							</button>
 						</div>

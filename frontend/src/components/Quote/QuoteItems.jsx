@@ -86,7 +86,7 @@ const QuoteItems = () => {
 										{item.id +
 											Math.floor(Math.random() * 100000)}
 									</span>
-									<span className="text-gray-700">
+									<span className="text-gray-700 truncate">
 										{item.title}
 									</span>
 								</div>

@@ -6,11 +6,7 @@ const ProductsPage = () => {
 	return (
 		<>
 			<Header activeHeading={2} />
-			<div className>
-				<div>
-					<ProductGallery/>
-				</div>
-			</div>
+			<ProductGallery />
 			<Footer />
 		</>
 	);

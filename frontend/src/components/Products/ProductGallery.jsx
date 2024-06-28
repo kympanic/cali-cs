@@ -18,17 +18,16 @@ const ProductGallery = () => {
 				Products
 			</div>
 			<div className="container mx-auto p-4">
-			<ul className="bg-white rounded-lg shadow divide-y divide-gray-200">
-			{filteredProducts.map((product) => {
-					return (
-						<ProductGalleryCard
-							key={product?.id}
-							product={product}
-						/>
-					);
-				})}
-      </ul>
-
+				<ul className="bg-white rounded-lg shadow divide-y divide-gray-200">
+					{filteredProducts.map((product) => {
+						return (
+							<ProductGalleryCard
+								key={product?.id}
+								product={product}
+							/>
+						);
+					})}
+				</ul>
 			</div>
 		</div>
 	);
