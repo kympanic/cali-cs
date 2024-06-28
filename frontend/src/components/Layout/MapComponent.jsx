@@ -2,11 +2,11 @@ import mapPlaceholder from "../../assets/map-placeholder.jpg";
 
 const MapComponent = () => {
 	return (
-		<div className="map-container">
+		<div className="w-full">
 			<img
 				src={mapPlaceholder}
 				alt="Map Placeholder"
-				className="w-full h-96 object-cover"
+				className="object-contain"
 			/>
 		</div>
 	);

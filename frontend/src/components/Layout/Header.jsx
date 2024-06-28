@@ -148,7 +148,7 @@ const Header = ({ activeHeading }) => {
 												: `/user/${userInfo._id}`
 										}
 									>
-										<span className="text-white ml-5 border p-2 rounded-lg bg-red-600">
+										<span className="text-white ml-5 border w-10 h-10 flex items-center justify-center rounded-full bg-[#c1c1c1] font-bold">
 											{userInfo?.username
 												.charAt(0)
 												.toUpperCase()}
