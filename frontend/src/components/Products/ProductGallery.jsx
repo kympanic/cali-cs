@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { ProductContext } from "../../context/ProductContext";
 import ProductGalleryCard from "./ProductGalleryCard";
 import CategoryList from "./CategoryList";
@@ -8,10 +8,13 @@ import { BiSolidRightArrow } from "react-icons/bi";
 import ProductsFilterSidebar from "./ProductsFilterSidebar";
 import { IoGridOutline } from "react-icons/io5";
 import { RxHamburgerMenu } from "react-icons/rx";
+import FeaturedProductCard from "./FeaturedProductCard";
 
 const ProductGallery = () => {
 	const { products } = useContext(ProductContext);
+	const [listView, setListView] = useState(true);
 
+	console.log(listView, "listview");
 	const filteredProducts = products.filter((item) => {
 		return item.category === "jewelery" || item.category === "electronics";
 	});
@@ -56,13 +59,19 @@ const ProductGallery = () => {
 								</select>
 							</div>
 							<div className="flex  justify-between ">
-								<div className="flex items-center mr-10 hover:font-bold hover:underline cursor-pointer ">
+								<div
+									onClick={() => setListView(false)}
+									className="flex items-center mr-10 hover:font-bold hover:underline cursor-pointer "
+								>
 									<IoGridOutline color="gray" />
 									<span className="ml-2 text-gray-600 text-large">
 										Grid
 									</span>
 								</div>
-								<div className="flex items-center hover:font-bold hover:underline cursor-pointer ">
+								<div
+									onClick={() => setListView(true)}
+									className="flex items-center hover:font-bold hover:underline cursor-pointer "
+								>
 									<RxHamburgerMenu />
 									<span className="ml-2 text-gray-600 text-lg">
 										List
@@ -71,17 +80,31 @@ const ProductGallery = () => {
 							</div>
 						</div>
 
-						<div className="mt-5">
-							{filteredProducts.map((product, index) => {
-								return (
-									<ProductGalleryCard
-										key={product?.id}
-										product={product}
-										index={index}
-									/>
-								);
-							})}
-						</div>
+						{listView ? (
+							<div className="mt-5">
+								{filteredProducts.map((product, index) => {
+									return (
+										<ProductGalleryCard
+											key={product?.id}
+											product={product}
+											index={index}
+										/>
+									);
+								})}
+							</div>
+						) : (
+							<div className="mt-5 grid grid-cols-1 md:grid-cols-3 gap-4 w-full mx-auto ">
+								{filteredProducts.map((product, index) => {
+									return (
+										<FeaturedProductCard
+											key={product?.id}
+											product={product}
+											index={index}
+										/>
+									);
+								})}
+							</div>
+						)}
 					</div>
 				</div>
 			</div>

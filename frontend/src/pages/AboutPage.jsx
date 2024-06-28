@@ -22,11 +22,11 @@ const AboutPage = () => {
 					</span>
 				</div>
 				<div className="w-3/4 mx-auto p-8 border shadow-sm ">
-					<div className="relative">
+					<div className="relative mb-10 flex justify-center ">
 						<h1 className="relative text-4xl text-blue-700 font-bold mb-4 z-10">
 							About Us
 						</h1>
-						<div className="w-[150px] absolute inset-0 -skew-y-6 bg-red-400 mt-1 z-0"></div>
+						<div className="w-[300px] absolute inset-0 -skew-y-6 bg-red-400 mb-3 z-0 transform -translate-x-1/2 left-1/2"></div>
 					</div>
 
 					<p className="text-lg text-gray-700 mb-6">
