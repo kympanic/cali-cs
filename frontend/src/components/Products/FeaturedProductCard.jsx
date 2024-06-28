@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { BsPlus, BsEyeFill } from "react-icons/bs";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../redux/features/cart/cartSlice";
-import { toast } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 
 const FeaturedProductCard = ({ product }) => {
 	const { id, image, category, title, description } = product;
@@ -14,7 +14,7 @@ const FeaturedProductCard = ({ product }) => {
 		dispatch(addToCart({ ...product, qty }));
 		toast.success("Item added successfully", {
 			position: "bottom-center",
-			autoclose: 2000,
+			autoclose: 1000,
 		});
 	};
 
@@ -55,6 +55,7 @@ const FeaturedProductCard = ({ product }) => {
 					{description}
 				</div>
 			</div>
+			<ToastContainer />
 		</div>
 	);
 };
