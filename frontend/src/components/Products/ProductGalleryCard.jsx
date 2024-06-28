@@ -5,7 +5,7 @@ import { addToCart } from "../../redux/features/cart/cartSlice";
 import { toast } from "react-toastify";
 import { useDispatch } from "react-redux";
 
-const ProductGalleryCard = ({ product }) => {
+const ProductGalleryCard = ({ product, index }) => {
 	const dispatch = useDispatch();
 	const { id, image, category, title, description, price } = product;
 
@@ -17,12 +17,13 @@ const ProductGalleryCard = ({ product }) => {
 		});
 	};
 	return (
-		// <div className="border border-[#e4e4e4] h-[300px] mb-4 relative overflow-hidden group transition bg-white">
-
-		// 	</div>
-		<div className="border border-[#e4e4e4] h-[300px] relative overflow-hidden group transition bg-white">
+		<div
+			className={`${
+				index % 2 === 0 ? "bg-white" : "bg-gray-100"
+			} border border-[#e4e4e4] h-[250px] relative overflow-hidden group transition `}
+		>
 			<div className="w-full h-full flex justify-center space-around items-center">
-				<div className="w-full flex space-around items-center">
+				<div className="w-full flex space-around items-center pr-5 ">
 					<div className="w-[200px] ml-10 flex justify-center ">
 						<img
 							className="max-h-[80px] m-[100px] group-hover:scale-110 transition duration-300"
@@ -30,7 +31,7 @@ const ProductGalleryCard = ({ product }) => {
 							alt=""
 						/>
 					</div>
-					<div className="m-[50px]">
+					<div className="ml-[25px]">
 						<div className="text-sm capitalize text-gray-500 mb-1 flex">
 							{category}
 						</div>

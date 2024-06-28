@@ -84,3 +84,66 @@ export const footerSupportLinks = [
 		name: "Live chat",
 	},
 ];
+
+export const productBrandData = [
+	{
+		name: "Acme United Corp",
+	},
+	{
+		name: "Core Products Int.",
+	},
+	{
+		name: "Betco",
+	},
+	{
+		name: "Sun Products Corp",
+	},
+	{
+		name: "Boardwalk",
+	},
+	{
+		name: "Vent-Rite",
+	},
+	{
+		name: "Sunburst",
+	},
+	{
+		name: "UNXCHRIST",
+	},
+	{
+		name: "KIK International",
+	},
+	{
+		name: "Dial",
+	},
+	{
+		name: "Vent-Rite",
+	},
+	{
+		name: "Sunburst",
+	},
+	{
+		name: "UNXCHRIST",
+	},
+	{
+		name: "KIK International",
+	},
+	{
+		name: "Dial",
+	},
+	{
+		name: "Vent-Rite",
+	},
+	{
+		name: "Sunburst",
+	},
+	{
+		name: "UNXCHRIST",
+	},
+	{
+		name: "KIK International",
+	},
+	{
+		name: "Dial",
+	},
+];
