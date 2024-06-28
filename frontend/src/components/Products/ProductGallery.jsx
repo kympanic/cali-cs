@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { ProductContext } from "../../context/ProductContext";
 import styles from "../../styles/styles";
 import ProductGalleryCard from "./ProductGalleryCard";
+import CategoryList from "./CategoryList";
 
 const ProductGallery = () => {
 	const { products } = useContext(ProductContext);
@@ -17,8 +18,9 @@ const ProductGallery = () => {
 			>
 				Products
 			</div>
-			<div className="container mx-auto p-4">
-			<ul className="bg-white rounded-lg shadow divide-y divide-gray-200">
+			<div className="container mx-auto p-4 flex flex-row">
+			<div className="m-[40px]"><CategoryList/></div>
+			<ul className="bg-white rounded-lg shadow divide-y divide-gray-200 ">
 			{filteredProducts.map((product) => {
 					return (
 						<ProductGalleryCard
